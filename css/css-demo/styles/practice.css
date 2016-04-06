@@ -1,0 +1,24 @@
+#contact-info p {
+  font-size: .8em;
+}
+
+.job {
+background: #e9e5dc;
+border-radius: 15px;
+padding: 5px;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.accomplishments {
+font-size: .8em;
+}
+
+.accomplishments: hover {
+  font-size: 1.0em;
+}
+
+section section {
+font-size: 1.0em ;
+
+}
