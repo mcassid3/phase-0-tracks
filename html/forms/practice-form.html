@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Selection</title>
+</head>
+<body>
+<form name="practice" action="success.html" method="post">
+    <div>
+    <label>Original color options</label><br>
+    <select name="Options">
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="blue">Blue</option>
+    </select>
+    </div>
+
+    <div>
+    <label>Your color description: </label><br>
+    <textarea name="colorsdescription" rows="10" cols="50">Write about your favorite color here</textarea>
+    </div>
+
+    <div>    
+      <label>Pick a date:</label><br>
+      <input type="date" name="date">
+    </div>
+
+    <div>
+    <label>Pick more colors</label> <br>
+    <input type ="radio" name="morecolors" value="green"> Green <br>
+    <input type ="radio" name="morecolors" value="pink"> Pink <br>
+    <input type ="radio" name="morecolors" value="orange"> Orange <br>
+    </div>
+
+    <div>
+    <label>Confidence of Color Selection</label><br>
+      <input type="checkbox" name="orangeconfidence" value="agree">
+      I am very confident that I like orange.
+      <input type="checkbox" name="greenconfidence" value="agree">
+      I am very confident that I like green.
+      <input type="checkbox" name="pinkconfidence" value="agree">
+      I am very confident that I like pink.
+    </div>
+    
+    <button type="submit"> Save your colors!</button>
+
+</form>
+</body>
+</html>
