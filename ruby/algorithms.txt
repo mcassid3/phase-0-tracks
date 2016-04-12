@@ -1,0 +1,63 @@
+Elevator Process
+Ask Mark "Would you like to take the elevator up or down?"
+    If Mark says up:
+         press up
+    If Mark says down:
+         press down
+Wait until the doors open
+Once the doors open, enter the elevator
+Ask Mark "What floor would you like to go to"
+    If Mark says 1: 
+        Press the circle in the top row, left corner
+    Else if Mark says 2:
+        Press the circle in the top row, 2nd column
+    ....(continue all floors)
+    If Mark says "none" or "nothing"
+        respond "you must pick a floor. Please say a number"
+        wait 3 seconds
+        repeat until Mark says a number
+(elevator starts moving)
+Once the elevator stops moving
+    If the floor number equals the floor number Mark requested:
+        Wait for the doors to fully open
+        Exit to the floor
+    Else repeat the process (wait for elevator to stop again)
+
+
+
+
+Release 1: Shoveling driveway
+Look out the window
+If it has not snowed more than 2 inches:
+    sit on  couch
+    grab a beer
+    say "no shoveling needed - woohoo!"
+Else
+    say "oh man"   
+    Put on boots
+    Put on hat
+    Put on gloves
+    Put on coat
+    Walk into the garage and find the the shovel in the garage
+    Walk to the end of the driveway to the curb's edge
+    Turn 90 degrees so that you face the opposite edge of the driveway (be parallel to curb)
+    Put shovel down on to the driveway
+    Walk to the opposite edge with shovel on ground pushing snow
+    Empty shovel of snow into the grass
+    Turn 180 degrees
+    Move a shovel's width back towards the house
+    Place shovel down
+    Walk back to the original edge of the drive you started from. 
+    Repeat this process until there is no longer a shovel's width between you and the house
+
+    If the dog walks in your pathway while shoveling, 
+        yell "Please move"
+        Wait for 3 seconds
+        check again if the dog has moved
+    If the dog has not moved, repeat one more time. 
+    Now, independent of whether the dog has decided to move, continue in your shoveling path
+    Place shovel back in garage
+    exclaim "all done!"
+
+
+
