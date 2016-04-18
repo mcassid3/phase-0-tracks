@@ -1,8 +1,8 @@
 #pseudocode encrypt method
 #Asks user to enter a password to be encrypted
 #for every letter in the string we need to replace it with the letter that follows it
-#in the alphabet
-#repeat until we have run out of letters in the given password
+#in the alphabet (next function)
+#repeat until we have run out of letters in the given password (once there are no more letters)
 #if it is a space character, return the space character !/
 
 def encrypt(password)
