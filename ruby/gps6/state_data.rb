@@ -1,6 +1,10 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
 
+#hash rockets stay string
+# symbol notation allows for access to symbol-keys
+#constants are always in caps, similar to globals - main diff global is $ and lowercase
+#constants supposed to stay the same - error messages will adjust to this type
 
 STATE_DATA = {
   "Alabama" => {population_density: 94.65, population: 4822023},
