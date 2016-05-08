@@ -10,6 +10,31 @@
       //e = index 1
       //5 - 1 = 4
       // now e = index 4
-    //print the new string, with the letters now in their new indices
+    //print the new string, with the letters having their newly assigned indices
 
-var word
+
+//note: my pseducode completely backfired because I soon realized after trying to implement that solution that
+//I do not yet know how to do some of those functions in java script
+
+
+//My adjusted solution
+function reverse(string) {
+  var str = string;
+  var word = '';
+  for (var i = str.length -1; i >= 0; i--) {
+    word = word + str[i]
+  }
+console.log(word);
+}
+
+//Driver code
+var telephone = "telephone"
+reverse(telephone)
+
+if (2<5 && 10 >= 4) {
+    console.log(telephone);
+} else if (5>8) {
+    console.log("Never!");
+} else {
+    console.log("Never as well!")
+}
