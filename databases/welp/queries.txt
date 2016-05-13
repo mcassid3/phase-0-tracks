@@ -1,0 +1,29 @@
+
+
+1. You've joined two tables before. How do you join three?
+
+SELECT * FROM businesses, users, reviews WHERE reviews.user_id = users.id AND reviews.business_id = businesses.id;
+
+Ouput: 
+1|Grundy Hollow Wedding Chapel|3|Angela|Jolie|1|5|amazing atmosphere|1|3
+4|Lotus Yoga|1|Bradford|Pitt|2|3|awful servicee|4|1
+5|Plumbing by Janet|4|Steven|Wonder|3|3|really liked the decor|5|4
+6|Sushi World|6|Meryl|Streepman|4|4|convenient|6|6
+
+
+2. There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+SELECT users.first_name,users.last_name, businesses.name,reviews.stars,reviews.comment FROM businesses,users,reviews WHERE reviews.user_id = users.id AND reviews.business_id = businesses.id;
+
+Output: 
+Angela|Jolie|Grundy Hollow Wedding Chapel|5|amazing atmosphere
+Bradford|Pitt|Lotus Yoga|3|awful servicee
+Steven|Wonder|Plumbing by Janet|3|really liked the decor
+Meryl|Streepman|Sushi World|4|convenient
+
+3. How do you view the data of all three tables for just one particular business?Ê
+
+SELECT * FROM businesses,users,reviews WHERE reviews.user_id = users.id AND reviews.business_id = businesses.id AND businesses.id=1;
+
+Output: 
+1|Grundy Hollow Wedding Chapel|3|Angela|Jolie|1|5|amazing atmosphere|1|3
