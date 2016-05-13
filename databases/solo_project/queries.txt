@@ -1,0 +1,78 @@
+
+1. Display the information in one table (either table is fine).
+SELECT * FROM cities;
+1|New York City|8400000|3
+2|Denver|660000|2
+3|Los Angeles|4000000|4
+4|Philadelphia|1500000|1
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).  Update the population of New York City to 9,000,000
+
+UPDATE cities SET population = 9000000 WHERE name = "New York City";
+To confirm that it changed: SELECT * FROM CITIES;
+New Output: 
+
+1|New York City|9000000|3
+2|Denver|660000|2
+3|Los Angeles|4000000|4
+4|Philadelphia|1500000|1
+
+3. Display the information in both tables using one query.
+SELECT * FROM cities,states WHERE cities.state_id = states.id;
+
+1|New York City|9000000|3|3|New York|true
+2|Denver|660000|2|2|Colordao|false
+3|Los Angeles|4000000|4|4|California|false
+4|Philadelphia|1500000|1|1|Pennsylvania|true
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+SELECT cities.name, cities.population, states.name FROM cities JOIN states ON state_id = states.id;
+New York City|9000000|New York
+Denver|660000|Colordao
+Los Angeles|4000000|California
+Philadelphia|1500000|Pennsylvania
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+DELETE FROM states WHERE orig_colony = "false";
+SELECT * FROM states;
+1|Pennsylvania|true
+3|New York|true
+
+
+A Couple Different Joins:
+
+Inner Join
+returns all rows from both tables where there is a match. If there are rows in first table that do not have matches in second table, those rows will not be listed. If I had a capital city field in my states table, I could run something like this: 
+
+SELECT cities.name, states.name
+FROM cities
+INNER JOIN states
+ON cities.name = states.capital
+
+This would display a list of all rows from both tables for any of the cities that happened to also be the capital of the state. For rows with no matches, nothing is displayed
+
+Left Join
+The LEFT JOIN returns all the rows from the first table, even if there are no matches in the second table. If there are rows in first table that do not have matches in second table, those rows also will be listed.
+
+SELECT cities.name, states.name
+FROM cities
+LEFT JOIN states
+ON cities.state_id = states.id;
+
+
+This would display all the cities in the first table (would show state name for those with matches). 
+
+The RIGHT JOIN returns all the rows from the second table, even if there are no matches in the first table. If there had been any rows in second table that did not have matches in first table, those rows also would have been listed.
+
+Right Join Ð not supported in SQLITE
+
+SELECT cities.population, states.capital, states.name
+FROM cities
+RIGHT JOIN states ON
+cities.name = states.capital
+
+Would return all the rows from states table and would show the population of the capital cities (for the ones with matches; 
+
+
