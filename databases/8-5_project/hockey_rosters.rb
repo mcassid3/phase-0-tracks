@@ -50,19 +50,25 @@ db.execute(create_players_table_cmd)
 #Teams sign up their schools - add row to Schools 
 def create_school(db, school_name)
   #if school_name does not match any of the records in the array
-  #current_school_list = db.execute("SELECT * FROM schools")
-  #current_school_list.each do |current_school|
-# if current_school_list['name'] != school_name
+  no_match = true
+  current_school_list = db.execute("SELECT * FROM schools")
+  current_school_list.each do |current_school|
+    if current_school['name'] == school_name
+      no_match = false
+    end
+  end
+
+  if no_match 
     db.execute("INSERT INTO schools (name) VALUES (?)", [school_name])
-#  else
-#  puts "School already exists."
-#   end
-#  end
+    puts "#{school_name} has been added to the team list."
+  else
+    puts "School already exists."
+  end
 end
 
 #Teams add players to their rosters - add row to Players
-def create_player(name, position, grad_year,school_id)
-  db.execute("INSERT INTO players (name,position,grad_year,school_id) VALUES (?,?,?,?,?)", [name,position,grad_year,school_name,FALSE])
+def create_player(db,name, position, grad_year,school_id,registration_status)
+  db.execute("INSERT INTO players (name,position,grad_year,school_id,registration_status) VALUES (?,?,?,?,?)", [name,position,grad_year,school_id,registration_status])
 end
 
 #Teams can delete players from their roster - delete row from Players (not sure about notation)
@@ -72,32 +78,65 @@ end
 
 #Teams can update players and their information - update rows from Players
 
-teams = ['Marist','Sandburg','Lincoln-Way Central #1', 'Lincoln-Way Central #2','Andrew', 
+current_teams = ['Marist','Sandburg','Lincoln-Way Central #1', 'Lincoln-Way Central #2','Andrew', 
   'Lincoln-Way East','Mt. Carmel', 'Fenwick','St. Viator','Homewood Flossmoor','Sandburg',
   'Riverside Brookfield','Conant','St. Laurence','St. Rita','Brother Rice','Lyons Township',
   'Providence Catholic #1','Providence Catholic #2','Downers Grove South','Downers Grove North',
   'Naperville Central']
 
-teams.each do |school|
- create_school(db,school)
-end
+
+#Added all the previously registered schools
+#current_teams.each do |school|
+ #create_school(db,school)
+#end
 
 
 #User interface
+school_response = ""
+until school_response == "done"
+  puts "Would you like to register a new school?. Type 'done' when you do not need to add any more schools."
+    school_response = gets.chomp
+    if school_response == "Yes"
+      puts "What is the school's name?"
+        new_school = gets.chomp
+        create_school(db,new_school)
+    else 
+      puts "Sorry, then you have come to the wrong place."
+    end
+end
 
-puts "Would you like to register a team?"
-  response = gets.chomp
-  if response == "Yes"
-    puts "What is the school's name?"
-    new_school = gets.chomp
-    create_school(db,new_school)
-    puts "#{new_school} has been added to the team list."
-  else
-    puts "...then what are you doing here?"
+player_response = ""
+
+until player_response == "done"
+puts "Would you like to register a player?"
+  player_response = gets.chomp
+  
+  if player_response == "Yes"
+    puts "What's is the player's name?"
+        player_name = gets.chomp
+    puts "What position does #{player_name} play?"
+        position = gets.chomp
+    puts "What year did #{player_name} graduate HS?"
+        grad_year = gets.chomp
+    
+    current_school_list = db.execute("SELECT * FROM schools")
+    current_school_list.each do |current_school|
+      p current_school['name']  
+      p current_school['id']
+    end
+
+    puts "Type the school id number for the school #{player_name} will skate for."
+      school_id = gets.chomp
+    puts "Did #{player_name} pay yet?"
+      registration_status = gets.chomp
+      registration_status = registration_status =="Yes"? true:false
+
+    create_player(db,player_name, position, grad_year,school_id, registration_status)
+  else 
+    puts "Sorry, then you have come to the wrong place."
   end
+end
 
-puts "Please add your players. Type 'done' when your roster is complete."
-until 
 
 
 
